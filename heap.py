@@ -24,7 +24,7 @@ def HeapSort(array,n):
 
 
 
-array = [1,3,2,9,5,4,8,22,19,56,34,31s]
+array = [1,3,2,9,5,4,8,22,19,56,34,31]
 n = len(array)
 HeapSort(array,n)
 
