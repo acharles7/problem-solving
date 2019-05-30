@@ -1,24 +1,23 @@
-def multiplyList(M):
+#find the product of the largest, second largest and the third largest
+#integer in the range [1,i]
+
+def multiplyRange(M):
     mul = 1
     for ele in M:
         mul = mul * ele
     return mul
 
 def find_numbers(A, start, end):
-    range = A[start:end+1]
-    range_sorted = sorted(range)
+    range_sorted = sorted(A[start:end+1])
+    size = len(range_sorted)
+    if(size == 2):
+        return multiplyRange(range_sorted)
 
-    if(len(range_sorted) == 2):
-        return multiplyList(range_sorted)
-
-    if(len(range_sorted) > 2):
-        temp = []
-        last_index = len(range_sorted) - 1
-        first = range_sorted[last_index]
-        second = range_sorted[last_index-1]
-        third = range_sorted[last_index-2]
-        temp = [first, second, third]
-        return multiplyList(temp)
+    if(size > 2):
+        first = range_sorted[size - 1]
+        second = range_sorted[size - 2]
+        third = range_sorted[size - 3]
+        return multiplyRange([first, second, third])
 
 def monk_multiplication(A, n):
     x = []
@@ -29,7 +28,7 @@ def monk_multiplication(A, n):
         else:
             nums = find_numbers(A, 1, i)
             x.append(nums)
-    print(x)
+    return x
 
 A = [1,2,3,4,5,6,7]
-monk_multiplication(A, len(A))
+print(monk_multiplication(A, len(A)))
