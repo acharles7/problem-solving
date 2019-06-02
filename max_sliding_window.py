@@ -17,13 +17,4 @@ def max_sliding_window(A, k):
     res.append(max(queue))
     return res
 
-A = [1, 3, -1, -3, 5, 3, 6, 7]
-k = 4
-g = [500]*10
-fi = 32
-fo = 500
-w = np.random.randn(fi,fo) * 0.01
-
-print(len(w))
-print(w.shape)
-#print(max_sliding_window(A, k))
+print(max_sliding_window(A, k))
