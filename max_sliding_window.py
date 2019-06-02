@@ -1,7 +1,7 @@
 #Max Sliding Window using queue
 
 import collections
-
+import numpy as np
 def max_sliding_window(A, k):
     if not A:
         return A
@@ -19,4 +19,11 @@ def max_sliding_window(A, k):
 
 A = [1, 3, -1, -3, 5, 3, 6, 7]
 k = 4
-print(max_sliding_window(A, k))
+g = [500]*10
+fi = 32
+fo = 500
+w = np.random.randn(fi,fo) * 0.01
+
+print(len(w))
+print(w.shape)
+#print(max_sliding_window(A, k))
