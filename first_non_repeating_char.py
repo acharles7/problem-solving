@@ -25,6 +25,6 @@ def non_repeat_char(stream):
         if(v == 1):
             return k
 
-stream = 'happybirthday'
+stream = 'happybirthdaybossie'
 print(non_repeat_char(stream))
 print(non_repeat_char_linear_time(stream))
