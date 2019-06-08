@@ -3,7 +3,6 @@
 def find_path_to_node(paths, root, N):
     if(root > N):
         return
-
     paths.append(root)
 
     for i in range(0,len(paths)):
