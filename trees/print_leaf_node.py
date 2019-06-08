@@ -1,4 +1,4 @@
-
+#Print All Leaf Nodes of a Binary Tree from left to right
 
 class Node:
     def __init__(self, data):
