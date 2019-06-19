@@ -1,3 +1,4 @@
+#Extract maximum numeric value from a given string
 
 def extractMaximum(S):
     num, res = 0, 0
@@ -9,5 +10,5 @@ def extractMaximum(S):
             num = 0
     return res
 
-S = '100klh5442abc365bg'
+S = 'abchsd2031sdhs'
 print(extractMaximum(S))
