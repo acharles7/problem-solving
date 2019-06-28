@@ -1,7 +1,8 @@
+# Valid Parenthesis
+
 def isValid(s):
     stack = []
     braces = {'{':'}','[':']','(':')'}
-
     for i in s:
         if i in braces:
             stack.append(i)
