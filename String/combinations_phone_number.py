@@ -1,3 +1,6 @@
+#Letter Combinations of a Phone Number
+
+
 def letterCombinations(digits: str):
     nums = [[2, 'abc'],[3, 'def'],[4, 'ghi'],[5, 'jkl'], [6, 'mno'], [7, 'pqrs'], [8, 'tuv'], [9, 'wxyz']]
     out = []
@@ -30,7 +33,7 @@ def letterCombinations(digits: str):
             for k in range(times[0]):
                 out.append(i)
                 p += 1
-                
+
     for i in range(1, len(combi)):
         q = 0
         while(q < length):
@@ -39,7 +42,6 @@ def letterCombinations(digits: str):
                     out[q] += j
                     q += 1
     return out
-
 
 digits = "5678"
 print(letterCombinations(digits))
