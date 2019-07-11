@@ -1,3 +1,5 @@
+# remove two adjacent duplicates from string recursively.
+
 def removeDuplicates(s):
     output = []
 
