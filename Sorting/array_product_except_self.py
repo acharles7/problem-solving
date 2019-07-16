@@ -15,5 +15,20 @@ def productExceptSelf(nums):
         res.append(calculateMul(fh+sh))
     return res
 
-A = [1,2,3,4]
-print(productExceptSelf(A))
+
+def productExceptSelf2(A):
+    res = []
+    cur = 1
+    for i in range(len(A)):
+        res.append(cur)
+        cur = cur * A[i]
+    print(A)
+    print(res)
+    rev = 1
+    for i in range(len(A) - 1, -1 , -1):
+        res[i] = res[i] * rev
+        rev = rev * A[i]
+    return res
+
+A = [1,2,3,2,1,5]
+print(productExceptSelf2(A))
