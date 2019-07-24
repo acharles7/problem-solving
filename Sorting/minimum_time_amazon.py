@@ -8,6 +8,7 @@ def minimumTime(files):
     for i in range(1, len(files)):
         time += files[i]
         output.append(time)
+    print(output)
     return sum(output)
 
 # Optimal
@@ -16,13 +17,21 @@ def minimumTime2(files):
 
     output = []
     l, r = 0, len(files) - 1
-    while(l < r):
-        time = files[l] + files[r]
-        output.append(time)
-        l += 1
-        r -= 1
-    return sum(output)
-files = [1, 2, 5, 10, 35, 89]
+    if len(files) % 2 == 0:
+        while(l < r):
+            time = files[l] + files[r]
+            output.append(time)
+            l += 1
+            r -= 1
+        return sum(output)
+    else:
+        while(l < r):
+            time = files[l + 1] + files[r]
+            output.append(time)
+            l += 1
+            r -= 1
+        return sum(output) + files[0]
+files = [1, 2, 5, 11, 35, 89, 10, 20, 12]
 
 print("Optimal:", minimumTime2(files))
-print("Less Optimal:", minimumTime(files))
+# print("Less Optimal:", minimumTime(files))
