@@ -1,5 +1,28 @@
 # Given a list of emails, we send one email to each address in the list.
-# How many different addresses actually receive mails? 
+# How many different addresses actually receive mails?
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+sin_wave = np.array([math.sin(x) for x in np.arange(200)])
+plt.plot(sin_wave[:50])
+
+
+X = []
+Y = []
+
+seq_len = 50
+num_records = len(sin_wave) - seq_len
+
+for i in range(num_records - 50):
+    X.append(sin_wave[i:i+seq_len])
+    Y.append(sin_wave[i+seq_len])
+X = np.array(X)
+print(X[0].shape)
+X = np.expand_dims(X, axis=2)
+print(X[0].shape)
+Y = np.array(Y)
+print(X.shape)
 
 def numUniqueEmails(emails):
     output =  set()
@@ -13,4 +36,4 @@ def numUniqueEmails(emails):
     return len(output)
 
 emails = ["test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"]
-print(numUniqueEmails(emails))
+# print(numUniqueEmails(emails))
