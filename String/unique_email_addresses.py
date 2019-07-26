@@ -17,12 +17,7 @@ num_records = len(sin_wave) - seq_len
 for i in range(num_records - 50):
     X.append(sin_wave[i:i+seq_len])
     Y.append(sin_wave[i+seq_len])
-X = np.array(X)
-print(X[0].shape)
-X = np.expand_dims(X, axis=2)
-print(X[0].shape)
-Y = np.array(Y)
-print(X.shape)
+
 
 def numUniqueEmails(emails):
     output =  set()
