@@ -5,9 +5,7 @@ def maxProfit(prices):
     for stock in prices:
         if stock < min_stock:
             min_stock = stock
-        curr_profit = stock - min_stock
-        if curr_profit > profit:
-            profit = curr_profit
+        profit = max(profit, stock - min_stock)
     return profit
 
 prices = [7,1,5,3,6,4]

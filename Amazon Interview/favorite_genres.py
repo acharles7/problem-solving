@@ -22,6 +22,7 @@ def findGenres(userSongs, songGenres):
     favoriteGenre = {user: [] for user in userSongs}
 
     userGenre = getUserGenre(userSongs, songGenres)
+    print(userGenre)
     for user in userGenre:
         if len(userGenre[user]) >= 1:
             temp = {}
@@ -40,7 +41,7 @@ def findGenres(userSongs, songGenres):
 
 
 userSongs = {
-   "David": ["song1", "song7"],
+   "David": ["song1", "song7", "song2", "song4"],
    "Emma":  ["song7"]
 }
 songGenres = {
