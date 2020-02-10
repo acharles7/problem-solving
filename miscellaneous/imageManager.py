@@ -1,3 +1,8 @@
+'''
+Create a ImageManager that can be used for downloading an image from an URL.
+If the image has been downloaded previously, retrieve from cache.
+'''
+
 from collections import OrderedDict
 class Cache():
     def __init__(self):
