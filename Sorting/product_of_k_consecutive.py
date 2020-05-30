@@ -1,21 +1,23 @@
 # Given an array of number nums and an int k. Return the product of every k consecutive numbers.
 
-#Time Complexity: N x k
+# Time Complexity: N x k
 def consecutiveProduct(nums, k):
     def multi(A):
         mul = 1
         for i in A:
             mul *= i
         return mul
+
     output = []
     for i in range(k - 1):
-        nums.insert(0,1)
+        nums.insert(0, 1)
 
-    for i in range(0,len(nums) -  k + 1):
-        output.append(multi(nums[i:i+k]))
+    for i in range(0, len(nums) - k + 1):
+        output.append(multi(nums[i : i + k]))
     return output
 
-#Time Complexity: N
+
+# Time Complexity: N
 def consecutiveProduct1(nums, k):
     product = 1
     output = []
@@ -27,6 +29,7 @@ def consecutiveProduct1(nums, k):
             product //= nums[i - k]
         output.append(product)
     return output
+
 
 nums = [1, 3, 3, 6, 5, 7, 0, -3]
 k = 3

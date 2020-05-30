@@ -4,7 +4,7 @@ def findNumber(candies, people):
     candy = 1
     i = 0
 
-    while(candies):
+    while candies:
         print(res)
         given = min(candy, candies)
         res[i] += given
@@ -13,6 +13,7 @@ def findNumber(candies, people):
         candy += 1
     return res
 
+
 candies = 7
 people = 4
-print(findNumber(candies,people))
+print(findNumber(candies, people))

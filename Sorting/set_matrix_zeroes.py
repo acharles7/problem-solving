@@ -1,4 +1,5 @@
-# Given a m x n matrix, if an element is 0, set its entire row and column to 0. 
+# Given a m x n matrix, if an element is 0, set its entire row and column to 0.
+
 
 def setZeroes(matrix):
     row = set()
@@ -17,5 +18,6 @@ def setZeroes(matrix):
                 matrix[i][j] = 0
     print(matrix)
 
-matrix = [[1,1,1],[1,0,1],[1,1,1]]
+
+matrix = [[1, 1, 1], [1, 0, 1], [1, 1, 1]]
 setZeroes(matrix)

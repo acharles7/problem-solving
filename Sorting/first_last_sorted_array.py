@@ -1,14 +1,15 @@
 # Given an array of integers nums sorted in ascending order,
 # find the starting and ending position of a given target value
 
+
 def searchRange(nums, target):
     if len(nums) < 1:
-        return -1,-1
+        return -1, -1
 
     left, right = -1, -1
     l, r = 0, len(nums) - 1
-    while(l < r):
-        mid = (l + r)//2
+    while l < r:
+        mid = (l + r) // 2
         if nums[mid] < target:
             l = mid + 1
         else:
@@ -18,8 +19,8 @@ def searchRange(nums, target):
 
     left = l
     l, r = left, len(nums) - 1
-    while(l < r):
-        mid = (l + r)//2 + 1
+    while l < r:
+        mid = (l + r) // 2 + 1
         if nums[mid] == target:
             l = mid
         else:
@@ -27,6 +28,7 @@ def searchRange(nums, target):
     right = l
     return left, right
 
-A = [5,7,7,8,8,8,9,10]
+
+A = [5, 7, 7, 8, 8, 8, 9, 10]
 target = 8
 print(searchRange(A, target))
