@@ -1,6 +1,7 @@
 # Given an integer array nums, find the contiguous subarray within an array
 # (containing at least one number) which has the largest product.
 
+
 def maxProduct(nums):
     if len(nums) < 1:
         return nums[0]
@@ -23,7 +24,8 @@ def maxProduct(nums):
         else:
             current_r = current_r * i
         global_mul_r = max(current_r, global_mul_r)
-    return max(global_mul_r,global_mul_l)
+    return max(global_mul_r, global_mul_l)
 
-A = [2,3,-2,4,1,2]
+
+A = [2, 3, -2, 4, 1, 2]
 print(maxProduct(A))

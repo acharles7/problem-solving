@@ -1,5 +1,6 @@
 # find all unique combinations in candidates where the candidate numbers sums to target.
 
+
 def combinationSum(candidates, target):
     def findNumbers(candidates, target, res, start):
         if target == 0:
@@ -15,6 +16,7 @@ def combinationSum(candidates, target):
     findNumbers(candidates, target, [], 0)
     return output
 
-candidates = [2,3,6,7]
+
+candidates = [2, 3, 6, 7]
 target = 7
 print(combinationSum(candidates, target))

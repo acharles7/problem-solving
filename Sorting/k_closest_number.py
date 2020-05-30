@@ -1,8 +1,11 @@
-#Given an unsorted array and two numbers x and k, find k closest values to x.
-#Time Complexity:  O(n + k)
+# Given an unsorted array and two numbers x and k, find k closest values to x.
+# Time Complexity:  O(n + k)
+
 
 def func(ele):
     return ele[1]
+
+
 def k_closest(A, n, k):
     x = []
     closest = []
@@ -15,7 +18,8 @@ def k_closest(A, n, k):
         closest.append(A_sorted[i][0])
     return closest
 
+
 A = [-10, -50, 20, 17, 80]
 n = 20
 k = 2
-print("Kth_Closest: ",k_closest(A, n, k))
+print("Kth_Closest: ", k_closest(A, n, k))
