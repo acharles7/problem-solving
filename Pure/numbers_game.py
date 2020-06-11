@@ -49,4 +49,5 @@ def number_score(num):
     
     return sum([nine, ones, seven, even, sequence])
     
-number_score(29379985962)
+print("Total Points: ", number_score(29379985962))
+
