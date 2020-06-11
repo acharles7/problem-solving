@@ -1,3 +1,4 @@
+
 def count_nine(num):
     NINE_POINT = 4
     nines = sum([1 for digit in num if digit == '9'])
