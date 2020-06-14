@@ -1,6 +1,6 @@
 import string
 
-alphabets = list(string.ascii_lowercase)
+alphabets = list(string.ascii_lowercase)  # list of alphabets, ['a', 'b', ..., 'z']
 
 def compare(a, b):
     i = 0
