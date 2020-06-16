@@ -20,7 +20,6 @@ For example, C denotes the camp site location. Return that location's coordinate
 
 '''
 
-
 from copy import deepcopy
 
 def bfs(grid, start):
@@ -35,7 +34,8 @@ def bfs(grid, start):
             distances.append(len(path))
 
         for x2, y2 in [(x-1, y), (x+1, y), (x, y+1), (x, y-1)]:
-            if 0 <= x2 < len(grid) and 0 <= y2 < len(grid[0]) and grid[x2][y2] != 'X' and (x2, y2) not in visited:
+            if 0 <= x2 < len(grid) and 0 <= y2 < len(grid[0]) and \
+            grid[x2][y2] != 'X' and (x2, y2) not in visited:
                 queue.append(path + [(x2, y2)])
                 visited.add((x2, y2))
     return distances
@@ -44,16 +44,18 @@ def find_campsite(field):
     campsites = {}
     for i in range(len(field)):
         for j in range(len(field)):
-            if field[i][j] == 'C':
+            if field[i][j] == ' ':
                 distances = bfs(deepcopy(field), (i, j))
                 campsites[(i, j)] = sum(distances)
-    return campsites
+    min_distance = min(campsites.values())
+    coordinate = [point for point, dist in  campsites.items() if dist == min_distance]
+    return coordinate
     
 
-field = [['*', 'X', ' ', '*', 'X', '*'],
-         [' ', 'X', 'C', ' ', ' ', ' '],
-         [' ', 'X', ' ', 'C', ' ', 'X'],
-         ['C', ' ', ' ', ' ', ' ', ' '],
-         [' ', 'X', 'X', ' ', 'X', '*'],
-         [' ', 'X', '*', ' ', 'X', 'C']]
-print(find_campsite(field))
+field = [['*', 'X', ' ', ' ', ' ', '*'],
+         [' ', 'X', '*', ' ', ' ', ' '],
+         [' ', 'X', ' ', ' ', ' ', ' '],
+         [' ', ' ', '*', ' ', ' ', '*'],
+         [' ', '*', ' ', ' ', ' ', '*'],
+         [' ', 'X', ' ', ' ', ' ', '*']]
+print('Campsites Location:', find_campsite(field))
