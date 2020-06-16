@@ -17,9 +17,7 @@ For example, C denotes the camp site location. Return that location's coordinate
 |   |   |   |   |   |   |
 |   |   |   |   |   | * |
 +-----------------------+
-
 '''
-
 from copy import deepcopy
 
 def bfs(grid, start):
@@ -50,7 +48,7 @@ def find_campsite(field):
     min_distance = min(campsites.values())
     coordinate = [point for point, dist in  campsites.items() if dist == min_distance]
     return coordinate
-    
+  
 
 field = [['*', 'X', ' ', ' ', ' ', '*'],
          [' ', 'X', '*', ' ', ' ', ' '],
