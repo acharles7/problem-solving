@@ -24,3 +24,28 @@ def addBinary(a: str, b: str) -> str:
 
     out = getBinary(getInt(a) + getInt(b))
     return out if out else '0'
+
+def addBinary(a: str, b: str) -> str:
+    n = max(len(a), len(b))
+    a, b = a.zfill(n), b.zfill(n)
+
+    carry = 0
+    out = []
+
+    for i in range(n-1, -1, -1):
+        if a[i] == '1':
+            carry += 1
+
+        if b[i] == '1':
+            carry += 1
+
+        if carry%2 == 1:
+            out.append('1')
+        else:
+            out.append('0')
+        carry //= 2
+
+    if carry == 1:
+        out.append('1')
+
+    return ''.join(out[::-1])
