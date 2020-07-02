@@ -53,3 +53,13 @@ def countSmaller(nums: List[int]) -> List[int]:
                 count += 1
         out.append(count)
     return out
+
+
+def countSmaller(self, nums: List[int]) -> List[int]:
+        arr = []
+        result = collections.deque() 
+        for i in range(len(nums)-1,-1,-1):
+            idx = bisect.bisect_left(arr, nums[i])
+            result.appendleft(idx)
+            arr.insert(idx, nums[i])
+        return result
