@@ -11,3 +11,30 @@ Implement the WordDictionary class:
 
 '''
 
+class WordDictionary:
+
+    def __init__(self):
+        self.root = {}
+
+    def addWord(self, word: str) -> None:
+        current = self.root
+        
+        for i in word:
+            if i not in current:
+                current[i] = {}
+            current = current[i]
+        current['*'] = True
+        
+    def searchAgain(self, word, trie):
+        for i, ch in enumerate(word):
+            if ch not in trie:
+                if ch == '.':
+                    for j in trie:
+                        if j != '*' and self.searchAgain(word[i+1:], trie[j]):
+                            return True
+                return False
+            trie = trie[ch]
+        return '*' in trie
+        
+    def search(self, word: str) -> bool:
+        return self.searchAgain(word, self.root)
