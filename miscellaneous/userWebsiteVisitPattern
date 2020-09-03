@@ -1,0 +1,52 @@
+'''
+We are given some website visits: the user with name username[i] visited the website website[i] at time timestamp[i].
+
+A 3-sequence is a list of websites of length 3 sorted in ascending order by the time of their visits. 
+(The websites in a 3-sequence are not necessarily distinct.)
+
+Find the 3-sequence visited by the largest number of users. If there is more than one solution, 
+return the lexicographically smallest such 3-sequence.
+'''
+
+from collections import defaultdict
+
+def find_patterns(arr):    
+    return [(arr[i], arr[j], arr[k]) 
+            for i in range(len(arr)) 
+            for j in range(i+1, len(arr)) 
+            for k in range(j+1, len(arr))]
+            
+def mostVisitedPattern(username, timestamp, website):
+    patterns = set()
+    user_dict = defaultdict(list)
+    user_patterns = defaultdict(set)
+    counter = {}
+    
+    logs = sorted([[user, time, web] for user, time, web in zip(username, timestamp, website)], 
+                  key=lambda l:l[1])
+
+    for user, time, web in logs:
+            user_dict[user].append(web)
+
+    for user, webs in user_dict.items():
+        patterns.update(find_patterns(webs))
+
+    for user, webs in user_dict.items():
+        user_patterns[user].update(find_patterns(webs))
+
+    for pattern in patterns:
+        counter[pattern] = 0
+        for user in user_dict:
+            if pattern in user_patterns[user]:
+                counter[pattern] += 1
+    
+    maximum = max(counter.values())
+    return sorted(map(list, [pattern for pattern, count in counter.items() if count == maximum]))[0]
+
+            
+username = ["joe","joe","joe","james","james","james","james","mary","mary","mary"] 
+timestamp = [1,2,3,4,5,6,7,8,9,10]
+website = ["home","about","career","home","cart","maps","home","home","about","career"]
+
+mostVisitedPattern(username, timestamp, website)
+
