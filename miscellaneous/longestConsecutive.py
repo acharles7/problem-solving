@@ -25,3 +25,28 @@ def longest_consecutive(nums):
         l = prev
     return maximum
 
+
+# Using heap
+
+import heapq
+
+def longest_consecutive(nums):
+    if not nums: return 0
+        
+    heapq.heapify(nums)
+    maximum, count = 0, 1
+    prev = heapq.heappop(nums)
+
+    while nums:
+        curr = heapq.heappop(nums)
+        if curr - prev == 1:
+            count += 1
+        elif curr - prev == 0:
+            count += 0
+        else:
+            maximum = max(maximum, count)
+            count = 1
+        prev = curr
+    return max(maximum, count)
+
+
