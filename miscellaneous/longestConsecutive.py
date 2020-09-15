@@ -50,3 +50,20 @@ def longest_consecutive(nums):
     return max(maximum, count)
 
 
+# Using set in O(n)
+
+def longest_consecutive(nums):
+    numset = set(nums)
+    maximum = 0
+
+    for num in numset:
+        if num - 1 not in numset:
+            count = 0
+            curr = num
+            while curr in numset:
+                count += 1
+                curr += 1
+            maximum = max(maximum, count)
+    return maximum
+
+
