@@ -57,8 +57,6 @@ def find_min_moves(start, end):
         distance += 1
         points = temp
         
-    printt(board)
-    
     curr_distance = board[i][j]
     path = []
     
