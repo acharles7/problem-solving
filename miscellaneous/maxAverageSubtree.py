@@ -29,3 +29,27 @@ def maximumAverageSubtree(root: TreeNode) -> float:
 
     return max_average
 
+@dataclasses.dataclass  
+class Node: 
+    val:int
+    count:int
+    average:float
+        
+def helper(self, root):
+    if not root: 
+        return Node(0, 0, 0)
+
+    left  = self.helper(root.left)
+    right = self.helper(root.right)
+
+    node_count = left.count + right.count + 1
+    node_sum = left.val + right.val + root.val
+
+    node_average = max([node_sum/node_count, left.average, right.average])
+
+    return Node(node_sum, node_count, node_average)
+        
+def maximumAverageSubtree(root: TreeNode) -> float:
+    return self.helper(root).average
+
+
