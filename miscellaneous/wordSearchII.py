@@ -59,5 +59,5 @@ board = [['o','a','o','n'],
          ['i','f','l','v']]
 words = ["zash", "oath", "pea","eat","rain", "neon", "kenn"]
 
-findWords(board, words)
+print(findWords(board, words))
 
