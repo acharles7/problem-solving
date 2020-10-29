@@ -34,3 +34,22 @@ def findTilt(root: TreeNode) -> int:
         tilts += abs(left-right)
     return tilts
 
+
+def findTilt(self, root: TreeNode) -> int:
+    tilt = 0
+
+    def find_sum(node):
+        nonlocal tilt
+        if not node:
+            return 0
+
+        left = find_sum(node.left)
+        right = find_sum(node.right)
+        local_tilt = abs(left-right)
+        tilt += local_tilt
+
+        return left+right+node.val
+
+    find_sum(root)
+    return tilt
+
